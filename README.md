@@ -15,64 +15,6 @@ To write and execute Assembly Language Programs to perform arithmetic operations
 
 ## 1. ADDITION
 
-### 1a) Direct Method
-
-#### Algorithm
-
-1. Open command prompt.
-2. Navigate to MASM directory and open editor.
-3. Type the program.
-4. Initialize memory location for the 1st number.
-5. Increment HL register and get 2nd data.
-6. Add values and store result.
-7. Compile and run using:
-
-   ```
-   masm filename.asm,,;
-   link filename,,;
-   debug filename.exe
-   ```
-8. Stop.
-
-#### Program
-
-```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-
-MOV CL,00H
-MOV AX,1234H
-MOV BX,1234H
-ADD AX,BX
-JNC L1
-INC CL
-
-L1:
-MOV SI,1200H
-MOV [SI],AX
-MOV [SI+2],CL
-MOV AH,4CH
-INT 21H
-
-CODE ENDS
-END
-```
-
-#### Output Table
-
-| MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----------------------- | ------------------------ |
-|                         |                          |
-
-#### Manual Calculations
-
-(Add your calculation here)
-
----
-
-### 1b) Indirect Method
-
 #### Algorithm
 
 1. Initialize memory location in HL register.
@@ -84,13 +26,17 @@ END
 7. Store result.
 8. Stop.
 
+
+## FLOW CHART
+<img width="707" height="1024" alt="image" src="https://github.com/user-attachments/assets/b5a7062d-e294-47cd-9683-a40de25e82de" />
+
+
 #### Program
 
 ```asm
 CODE SEGMENT
 ASSUME CS: CODE, DS: CODE
 ORG 1000H
-
 MOV SI,2000H
 MOV CL,00H
 MOV AX,[SI]
@@ -98,16 +44,14 @@ MOV BX,[SI+02H]
 ADD AX,BX
 JNC L1
 INC CL
-
 L1:
 MOV [SI+04H],AX
 MOV [SI+06H],CL
 MOV AH,4CH
 INT 21H
-
 CODE ENDS
 END
-```
+
 
 #### Output Table
 
@@ -120,56 +64,10 @@ END
 (Add your calculation here)
 
 ---
+
+## OUTPUT IMAGE FROM MASM SOFTWARE
 
 ## 2. SUBTRACTION
-
-### 2a) Direct Method
-
-#### Algorithm
-
-1. Load address of first number.
-2. Move first data to accumulator.
-3. Increment HL.
-4. Subtract second data from accumulator.
-5. Store result.
-
-#### Program
-
-```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-
-MOV AX,1234H
-MOV BX,1234H
-SUB AX,BX
-JNC Down
-INC CL
-
-Down:
-MOV SI,1200H
-MOV [SI],AX
-MOV [SI+2],CL
-MOV AH,4CH
-INT 21H
-
-CODE ENDS
-END
-```
-
-#### Output Table
-
-| MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----------------------- | ------------------------ |
-|                         |                          |
-
-#### Manual Calculations
-
-(Add your calculation here)
-
----
-
-### 2b) Indirect Method
 
 #### Algorithm
 
@@ -179,30 +77,14 @@ END
 4. Subtract memory content.
 5. Store result.
 
+## FLOWCHART
+
+<img width="569" height="906" alt="image" src="https://github.com/user-attachments/assets/3b1aee5d-db41-4e5b-8a86-e86f59a463e1" />
+
+
 #### Program
 
-```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
 
-MOV SI,2000H
-MOV CL,00H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-SUB AX, BX
-JNC DOWN
-INC CL
-
-DOWN:
-MOV [SI+04H],AX
-MOV [SI+06H],CL
-MOV AH,4CH
-INT 21H
-
-CODE ENDS
-END
-```
 
 #### Output Table
 
@@ -215,53 +97,11 @@ END
 (Add your calculation here)
 
 ---
+
+
+## OUTPUT SCREEN FROM MASM SOFTWARE
 
 ## 3. MULTIPLICATION
-
-### 3a) Direct Method
-
-#### Algorithm
-
-1. Move first number into accumulator.
-2. Increment register pair.
-3. Multiply both numbers.
-4. Store result.
-
-#### Program
-
-```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-
-MOV DX,0000H
-MOV AX,1234H
-MOV BX,1234H
-MUL BX
-
-MOV SI,1200H
-MOV [SI],AX
-MOV [SI+02H],DX
-MOV AH,4CH
-INT 21H
-
-CODE ENDS
-END
-```
-
-#### Output Table
-
-| MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----------------------- | ------------------------ |
-|                         |                          |
-
-#### Manual Calculations
-
-(Add your calculation here)
-
----
-
-### 3b) Indirect Method
 
 #### Algorithm
 
@@ -270,24 +110,26 @@ END
 3. Multiply.
 4. Store result.
 
+##FLOWCHART
+
+<img width="286" height="516" alt="image" src="https://github.com/user-attachments/assets/56e35bde-4e9e-47bd-b2cd-361f82008e5c" />
+
+
 #### Program
 
 ```asm
 CODE SEGMENT
 ASSUME CS: CODE, DS: CODE
 ORG 1000H
-
 MOV SI,2000H
 MOV DX,0000H
 MOV AX,[SI]
 MOV BX,[SI+02H]
 MUL BX
-
 MOV [SI+04H],AX
 MOV [SI+06H],DX
 MOV AH,4CH
 INT 21H
-
 CODE ENDS
 END
 ```
@@ -303,53 +145,10 @@ END
 (Add your calculation here)
 
 ---
+
+## OUTPUT SCREEN FROM MASM SOFTWARE
 
 ## 4. DIVISION
-
-### 4a) Direct Method
-
-#### Algorithm
-
-1. Load dividend into AX.
-2. Load divisor into BX.
-3. Divide AX by BX.
-4. Store result and remainder.
-
-#### Program
-
-```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-
-MOV DX,0000H
-MOV AX,1234H
-MOV BX,1234H
-DIV BX
-
-MOV SI,1200H
-MOV [SI],AX
-MOV [SI+02H],DX
-MOV AH,4CH
-INT 21H
-
-CODE ENDS
-END
-```
-
-#### Output Table
-
-| MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----------------------- | ------------------------ |
-|                         |                          |
-
-#### Manual Calculations
-
-(Add your calculation here)
-
----
-
-### 4b) Indirect Method
 
 #### Algorithm
 
@@ -357,26 +156,14 @@ END
 2. Perform division.
 3. Store result.
 
+   ## FLOWCHART
+   <img width="578" height="797" alt="image" src="https://github.com/user-attachments/assets/9f28dd51-dda0-46f0-b11d-7e36d6245c0e" />
+
+
 #### Program
 
 ```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
 
-MOV SI,2000H
-MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-DIV BX
-
-MOV [SI+04H],AX
-MOV [SI+06H],DX
-MOV AH,4CH
-INT 21H
-
-CODE ENDS
-END
 ```
 
 #### Output Table
@@ -390,6 +177,9 @@ END
 (Add your calculation here)
 
 ---
+## OUTPUT FROM MASM SOFTWARE
+
+
 
 ## RESULT
 
