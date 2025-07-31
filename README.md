@@ -79,7 +79,7 @@ END
 
 ## FLOWCHART
 
-<img width="569" height="906" alt="image" src="https://github.com/user-attachments/assets/3b1aee5d-db41-4e5b-8a86-e86f59a463e1" />
+<img width="578" height="797" alt="image" src="https://github.com/user-attachments/assets/564c3c7a-33ce-4a1c-8920-beb5c24b9b47" />
 
 
 #### Program
@@ -157,7 +157,7 @@ END
 3. Store result.
 
    ## FLOWCHART
-   <img width="578" height="797" alt="image" src="https://github.com/user-attachments/assets/9f28dd51-dda0-46f0-b11d-7e36d6245c0e" />
+<img width="1065" height="802" alt="image" src="https://github.com/user-attachments/assets/25b4a483-0d42-494b-8639-1af3ea17191b" />
 
 
 #### Program
