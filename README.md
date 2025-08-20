@@ -51,7 +51,7 @@ MOV AH,4CH
 INT 21H
 CODE ENDS
 END
-
+```
 
 #### Output Table
 
