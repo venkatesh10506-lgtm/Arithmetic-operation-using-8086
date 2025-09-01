@@ -57,15 +57,20 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|1200:12                  | 	1204:24                |
+|1201:34	                 |   1205:68                |            
+|1202:12	                 |   1206:00                |
+|1203:34	                 |   1207:C4                |
 
 #### Manual Calculations
+![WhatsApp Image 2025-09-01 at 8 52 41 PM (1)](https://github.com/user-attachments/assets/cb2f34fc-700e-43ea-9863-d32068c3bb3e)
 
-(Add your calculation here)
-
----
 
 ## OUTPUT IMAGE FROM MASM SOFTWARE
+<img width="640" height="480" alt="Screenshot (236)" src="https://github.com/user-attachments/assets/7bc8c6cf-006f-4339-bb1f-e8f4530e987a" />
+
+<img width="640" height="480" alt="Screenshot (235)" src="https://github.com/user-attachments/assets/a822fab0-2736-49b8-8e3c-ecb12257f817" />
+
 
 ## 2. SUBTRACTION
 
@@ -83,23 +88,45 @@ END
 
 
 #### Program
-
-
+```asm
+CODE SEGMENT
+ASSUME CS: CODE, DS: CODE
+ORG 1000H
+MOV SI,1200H
+MOV CL,00H
+MOV AX,[SI]
+MOV BX,[SI+02H]
+SUB AX,BX
+JNC L1
+INC CL
+L1:
+MOV [SI+04H],AX
+MOV [SI+06H],CL
+MOV AH,4CH
+INT 21H
+CODE ENDS
+END
+```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|1200:12                  |  00:1204                 |
+|1202:34                  |  00:1205                 |
+|1202:12                  |  00:1206                 |
+|1202:34                  |  C4:1207                 |
 
 #### Manual Calculations
-
-(Add your calculation here)
-
----
+![WhatsApp Image 2025-09-01 at 8 52 41 PM](https://github.com/user-attachments/assets/d100523b-c347-457c-849d-c5f4b07b8893)
 
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="640" height="480" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/140d3f1b-61f6-4005-bab9-92674543c141" />
+
+<img width="640" height="480" alt="Screenshot (237)" src="https://github.com/user-attachments/assets/808830fb-042c-4c08-8c6a-d4dd3b0aa907" />
+
+
 
 ## 3. MULTIPLICATION
 
@@ -139,15 +166,21 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|1200:12                  |  44:1204                 |
+|1202:34                  |  51:1205                 |
+|1202:12                  |  97:1206                 |
+|1202:34                  |  0A:1207                 |
 
 #### Manual Calculations
+![WhatsApp Image 2025-09-01 at 8 52 40 PM (1)](https://github.com/user-attachments/assets/f158dfd2-5d98-41ef-a5b9-c328d462efb1)
 
-(Add your calculation here)
-
----
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="640" height="480" alt="Screenshot (240)" src="https://github.com/user-attachments/assets/1f85197c-8be3-4b2e-89a7-74f4cfcb824f" />
+
+<img width="640" height="480" alt="Screenshot (239)" src="https://github.com/user-attachments/assets/2e1e6746-0bd1-48e0-8acb-fc4687ba85cb" />
+
+
 
 ## 4. DIVISION
 
@@ -184,14 +217,21 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|1200:12                  |  00:1204                 |
+|1202:34                  |  01:1205                 |
+|1202:12                  |  00:1206                 |
+|1202:34                  |  00:1207                 |
 
 #### Manual Calculations
+![WhatsApp Image 2025-09-01 at 8 52 40 PM](https://github.com/user-attachments/assets/255f5a2a-3134-43f5-b8e2-5a6407e93080)
 
-(Add your calculation here)
 
----
 ## OUTPUT FROM MASM SOFTWARE
+<img width="640" height="480" alt="Screenshot (242)" src="https://github.com/user-attachments/assets/4c5f0a65-68f2-4e8f-80d4-d75598834c5b" />
+
+<img width="640" height="480" alt="Screenshot (241)" src="https://github.com/user-attachments/assets/458f1846-f0bd-4db6-a1be-7c0225fe9d3e" />
+
+
 
 
 
